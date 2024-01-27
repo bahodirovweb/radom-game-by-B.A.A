@@ -1,25 +1,26 @@
-var inp = document.querySelector('input');
-var h1 = document.querySelector("h1");
-var numRan = Math.floor(Math.random() * 10)
-var count = 1
+var elTitle = document.querySelector('.title');
+var elForm = document.querySelector('form');
+var elSelect = document.querySelector('.select');
 
-function fn() {
-    count = count + 1
-    var val = inp.value;
-    if (count <= 3) {
-        if (numRan > val) {
-            h1.textContent = "raqami katta"
-        }
-        else if (numRan < val) {
-            h1.textContent = "raqami kichik"
-        } else if (numRan == val) {
-            h1.textContent = "MALADES"
-        } 
-    }else {
-        h1.textContent = "topa olmadin  javob (" + numRan + ")edi"
+
+
+elForm.addEventListener('submit', function (btn) {
+    btn.preventDefault()
+    var inp1 = document.querySelector('.inp1').value * 1
+    var inp2 = document.querySelector('.inp2').value * 1
+    var result;
+
+    if (elSelect.value == '+') {
+        result = inp1 + inp2 
+    } else if (elSelect.value == '-') {
+        result = inp1 - inp2
+    } else if (elSelect.value == '/') {
+        result = inp1 / inp2
+    } else if (elSelect.value == '*') {
+        result = inp1 * inp2
+    } else {
+        h1.textContent = "raqam emas"
     }
 
-    inp.value = '';
-    inp.focus();
-    
-}
+    elTitle.textContent = result
+})
